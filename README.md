@@ -4,8 +4,8 @@ Aques és el meu **portfoli** sobre els meus estudis del *Cicle Superir de Desen
 
 Els moduls que he fet son:
 - [M01: Sistemes informàti](https://github.com/OriolJove/Portfolio/tree/main/Moduls/GS/M01-Sistemes%20Inf%C3%B3rmatics)
-- M02: Bases de dades
-- M03: Programació
-- M04: Llenguatge de Marques
-- M12: FOL
-- M13: EIE
+- [M02: Bases de dades](https://github.com/OriolJove/Portfolio/tree/main/Moduls/GS/M02-Base%20de%20dades)
+- [M03: Programació]()
+- [M04: Llenguatge de Marques]()
+- [M12: FOL]()
+- [M13: EIE]()
