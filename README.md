@@ -7,5 +7,5 @@ Els moduls que he fet son:
 - [M02: Bases de dades](https://github.com/OriolJove/Portfolio/tree/main/Moduls/GS/M02-Base%20de%20dades)
 - [M03: Programació](https://github.com/OriolJove/Portfolio/tree/main/Moduls/GS/M03-Programaci%C3%B3)
 - [M04: Llenguatge de Marques]()
-- [M12: FOL]()
+- [M12: FOL](https://github.com/OriolJove/Portfolio/tree/main/Moduls/GS/M04-LLenguatge%20de%20marques)
 - [M13: EIE]()
