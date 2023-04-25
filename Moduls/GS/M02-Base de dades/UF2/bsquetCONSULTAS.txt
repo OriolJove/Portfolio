@@ -1,0 +1,48 @@
+/*#90
+select e.nom, e.estadi, d.nom from equip e, directiu d, estadi es,membre_equip me where d.carrec = "President" and e.nom = me.equip and me.nom = d.nom and es.nom = e.estadi and aforament < (select avg(aforament) from estadi);
+#91
+select a.arbitre from arbitra a, partit p where punts_local > punts_visitant and p.jornada = a.jornada and a.equip_local = p.equip_local group by a.arbitre having count(a.arbitre) > 1;
+#92
+select e.nom, group_concat(j.nom), en.nom from equip e, jugador j, entrenador en, partit p, membre_equip me where p.punts_visitant > p.punts_local and e.nom = me.equip and e.nom = p.equip_visitant and me.nom = j.nom 
+and me.nom = en.nom group by e.nom having count(p.jornada) >= 2;
+#93
+select e.nom, d.nom from equip e, membre_equip me, partit p, directiu d where e.nom = me.equip and me.nom = d.nom and e.nom = p.equip_visitant and punts_visitant > (select avg(punts_visitant) from partit) group by equip_visitant;
+#94
+select  j.nom, j.posicio, me.equip from membre_equip me, jugador j, entrenador en where j.nom = me.nom and me.nom = en.nom and j.nom in (select j.nom from jugador where j.nom = en.nom ) order by me.equip,me.nom;
+#95
+select me.nom, me.nom from membre_equip me where me.nom like '%Brunet%' order by equip,nom;
+#96
+select d.nom, me.equip from directiu d, membre_equip me where me.nom = d.nom and d.carrec <> 'President';
+#97
+select count(j.fitxa), me.equip from jugador j, membre_equip me where j.nom = me.nom group by me.equip;
+#98
+select  e.nom,sum(p.punts_visitant) from partit p, equip e where p.equip_visitant in (select p.equip_visitant from partit p where p.punts_visitant > p.punts_local) and e.nom = p.equip_visitant group by e.nom;
+#99
+select e.nom , sum(p.punts_local) from partit p, equip e where e.nom = p.equip_local group by e.nom;
+#100
+select j.nom, me.equip from jugador j, membre_equip me where fitxa > 400 and me.nom = j.nom;
+#101
+select j.nom, me.equip, count(j.fitxa) as quantitat_fitxa  from jugador j, membre_equip me where fitxa > 400 and me.nom = j.nom group by me.equip order by me.equip;
+#102
+select * from partit where (equip_local = 'Basquet Olot' and punts_local > punts_visitant )or (equip_visitant = 'Basquet Olot' and punts_visitant > punts_local);
+#103
+select a.nom, year(now()) - antiguitat as temps_arbitrant from arbitre a where ciutat_naixement = 'Olot' and year(now()) - antiguitat > 5;
+#104 Mostra la màxima diferència que s’ha produït en un partit.
+select *,abs(max(punts_local - punts_visitant)) from partit;
+#105
+select e.nom, e.pressupost, e.filial_de, e2.pressupost from equip e,equip e2 where e.filial_de = e2.nom; 
+#106
+select nom, avg(year(now()) - antiguitat) from arbitre;
+#107
+select a.arbitre,count(a.arbitre),a.equip_local, p.equip_visitant from arbitra a, partit p where p.jornada = a.jornada  
+and a.equip_local = p.equip_local and (a.equip_local in ('Girona BC', 'Gironès BC') or p.equip_visitant in ('Girona BC', 'Gironès BC')) group by a.arbitre order by count(a.arbitre)desc limit 1;
+select a.arbitre,count(a.arbitre),a.equip_local, p.equip_visitant from arbitra a, partit p where p.jornada = a.jornada  
+and a.equip_local = p.equip_local and (a.equip_local in ('Girona BC', 'Gironès BC') or p.equip_visitant in ('Girona BC', 'Gironès BC')) group by a.arbitre having count(*)=3 order by count(a.arbitre)desc;
+#108
+select e.nom from equip e, partit p where equip_local;
+#109
+select distinct count(jornada), equip_visitant from partit where punts_visitant > punts_local group by jornada having count(*) = (select count(*) from partit where punts_visitant > punts_local group by jornada order by count(*) desc LIMIT 1);
+#110
+select equip, count(*) from membre_equip group by equip having count(*) = (select count(nom) from membre_equip  group by equip order by count(*) desc limit 1);
+#111  Mostra l'equip/s ha guanyat menys partits a casa
+Select p.equip_local,count(*) from partit p where p.punts_local > p.punts_visitant group by p.equip_local having count(*)=(select count(*) from partit p where p.punts_local > p.punts_visitant group by p.equip_local order by count(*) limit 1);*/
